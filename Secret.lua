@@ -1662,7 +1662,17 @@ local c = {
                 end
             )
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Secret4869/Secret/main/Logo.lua"))()
+local LogoHub = Instance.new("ImageLabel")
+LogoHub.Name = "Ex"
+LogoHub.Parent = p.Frame
+LogoHub.AnchorPoint = Vector2.new(0.5, 0.5)
+LogoHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LogoHub.BackgroundTransparency = 1.000
+LogoHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LogoHub.BorderSizePixel = 0
+LogoHub.Position = UDim2.new(0.0500001274, 0, 0.5, 0)
+LogoHub.Size = UDim2.new(0, 50, 0, 42)
+LogoHub.Image = ExLogoHub
 
             p.MinButton =
                 r(
