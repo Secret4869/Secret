@@ -524,6 +524,25 @@ local c = {
                     )
                 }
             )
+    	local RunService = game:GetService("RunService")
+		local Logo_Background = Instance.new("ImageLabel")
+		Logo_Background.Name = "ExbG"
+		Logo_Background.Parent = m.Frame
+		Logo_Background.Active = true
+		Logo_Background.AnchorPoint = Vector2.new(0,0)
+		Logo_Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Logo_Background.BackgroundTransparency = 1
+		Logo_Background.Position = UDim2.new(0, 5, 0, 5)
+		Logo_Background.Size = UDim2.new(0, 480, 0, 380)
+		Logo_Background.ImageTransparency = 0.7
+		Logo_Background.Image = ExLogoHub
+        --[[RunService.RenderStepped:Connect(function()
+		Logo_Background.Rotation = Logo_Background.Rotation + 1
+			if Logo_Background.Rotation >= 360 then
+				Logo_Background.Rotation = 0 
+			end
+		end)]]
+            
             local n
             if f(e.Parent.Parent).UseAcrylic then
                 n = j()
@@ -1076,7 +1095,7 @@ local c = {
                     Position = UDim2.new(1, -14, 0, 13),
                     Size = UDim2.fromOffset(20, 20),
                     AnchorPoint = Vector2.new(1, 0),
-                    BackgroundTransparency = 1
+                    BackgroundTransparency = 1 --ปุ่ม ปิด
                 },
                 {
                     o(
@@ -1537,6 +1556,7 @@ local c = {
                                     Position = UDim2.fromScale(0.5, 0.5),
                                     AnchorPoint = Vector2.new(0.5, 0.5),
                                     BackgroundTransparency = 1,
+                                    ImageTransparency = 1,
                                     Name = "Icon",
                                     ThemeTag = {ImageColor3 = "Text"}
                                 }
@@ -1661,7 +1681,7 @@ local c = {
                     o.Window.Maximize(not o.Window.Maximized)
                 end
             )
-
+            
 local LogoHub = Instance.new("ImageLabel")
 LogoHub.Name = "Ex"
 LogoHub.Parent = p.Frame
