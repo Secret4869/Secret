@@ -54,7 +54,7 @@ showNotification("Initializing the UI...", 5)
 wait(1)
 showNotification("UI Power By Eclipse", 3) 
 wait(1)
-showNotification("Script Power By Secret + I Im Shadow", 6) 
+showNotification("Script Power By Secret + Barloss ", 6) 
 
 local a, b = {
     {
