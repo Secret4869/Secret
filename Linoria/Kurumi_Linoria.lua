@@ -9,7 +9,7 @@ local RenderStepped = RunService.RenderStepped;
 local LocalPlayer = Players.LocalPlayer;
 local Mouse = LocalPlayer:GetMouse();
 
-if CoreGui:FindFirstChild("Delta") then CoreGui:FindFirstChild("Delta"):Destroy() end
+if CoreGui:FindFirstChild("__xyz") then CoreGui:FindFirstChild("__xyz"):Destroy() end
 
 local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end);
 
@@ -18,7 +18,7 @@ ProtectGui(ScreenGui);
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 ScreenGui.Parent = CoreGui;
-ScreenGui.Name = "Delta"
+ScreenGui.Name = "__xyz"
 
 local Toggles = {};
 local Options = {};
@@ -29,34 +29,34 @@ getgenv().Options = Options;
 local Library = {
 	NotifyOnError = false;
 	DoubleClickToToggle = false;
-	
-    Registry = {};
-    RegistryMap = {};
 
-    HudRegistry = {};
+	Registry = {};
+	RegistryMap = {};
 
-    FontColor = Color3.fromRGB(255, 255, 255);
-    MainColor = Color3.fromRGB(28, 28, 28);
-    BackgroundColor = Color3.fromRGB(38, 38, 38);
-    AccentColor = Color3.fromRGB(0, 85, 255);
-    OutlineColor = Color3.fromRGB(212, 0, 255);
-    RiskColor = Color3.fromRGB(255, 50, 50),
+	HudRegistry = {};
 
-    Black = Color3.new(0, 0, 0);
-    Font = Enum.Font.Code,
+	FontColor = Color3.fromRGB(255, 255, 255);
+	MainColor = Color3.fromRGB(0, 15, 30);
+	BackgroundColor = Color3.fromRGB(5, 5, 20);
+	AccentColor = Color3.fromRGB(0,180,255);
+	OutlineColor = Color3.fromRGB(	0, 0, 5);
+	RiskColor = Color3.fromRGB(255, 50, 50),
 
-    OpenedFrames = {};
-    DependencyBoxes = {};
+	Black = Color3.new(0, 0, 0);
+	Font = Enum.Font.Code,
 
-    Signals = {};
-    ScreenGui = ScreenGui;
+	OpenedFrames = {};
+	DependencyBoxes = {};
+
+	Signals = {};
+	ScreenGui = ScreenGui;
 };
 
 local RainbowStep = 0
 local Hue = 0
 
-table.insert(Library.Signals, RenderStepped:Connect(function(Delta)
-    RainbowStep = RainbowStep + Delta
+table.insert(Library.Signals, RenderStepped:Connect(function(__xyz)
+    RainbowStep = RainbowStep + __xyz
 
     if RainbowStep >= (1 / 60) then
         RainbowStep = 0
@@ -3103,7 +3103,7 @@ function Library:CreateWindow(...)
     if type(Config.MenuFadeTime) ~= 'number' then Config.MenuFadeTime = 0.2 end
 
     if typeof(Config.Position) ~= 'UDim2' then Config.Position = UDim2.fromOffset(175, 50) end
-    if typeof(Config.Size) ~= 'UDim2' then Config.Size = UDim2.fromOffset(550, 600) end
+    if typeof(Config.Size) ~= 'UDim2' then Config.Size = UDim2.fromOffset(550, 300) end
 
     if Config.Center then
         Config.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -3682,13 +3682,13 @@ function Library:CreateWindow(...)
                 local Cursor = Drawing.new('Triangle');
                 Cursor.Thickness = 1;
                 Cursor.Filled = true;
-                Cursor.Visible = true;
+                Cursor.Visible = false;
 
                 local CursorOutline = Drawing.new('Triangle');
                 CursorOutline.Thickness = 1;
                 CursorOutline.Filled = false;
                 CursorOutline.Color = Color3.new(0, 0, 0);
-                CursorOutline.Visible = true;
+                CursorOutline.Visible = false;
 
                 while Toggled and ScreenGui.Parent do
                     InputService.MouseIconEnabled = false;
