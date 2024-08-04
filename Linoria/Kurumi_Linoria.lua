@@ -1410,6 +1410,12 @@ do
             ZIndex = 5;
             Parent = Container;
         });
+    
+    Label.Update = function()
+					return TextLabel
+				end
+				return Label
+			end
 
         if DoesWrap then
             local Y = select(2, Library:GetTextBounds(Text, Library.Font, 14, Vector2.new(TextLabel.AbsoluteSize.X, math.huge)));
@@ -1903,7 +1909,7 @@ do
 
     function Funcs:AddToggle(Idx, Info)
         assert(Info.Text, 'AddInput: Missing `Text` string.')
-
+        --local Toggle_func = {}
         local Toggle = {
             Value = Info.Default or false;
             Type = 'Toggle';
@@ -1981,6 +1987,12 @@ do
             { BorderColor3 = 'AccentColor' },
             { BorderColor3 = 'Black' }
         );
+        --[[
+        Toggle_func.Update = function()
+					return TextLabel
+				end
+				return Toggle_func
+			end]]
 
         function Toggle:UpdateColors()
             Toggle:Display();
