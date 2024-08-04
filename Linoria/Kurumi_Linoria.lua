@@ -1903,7 +1903,6 @@ do
 
     function Funcs:AddToggle(Idx, Info)
         assert(Info.Text, 'AddInput: Missing `Text` string.')
-        local Toggle_func = {}
         local Toggle = {
             Value = Info.Default or false;
             Type = 'Toggle';
@@ -1982,10 +1981,10 @@ do
             { BorderColor3 = 'Black' }
         );
         
-        Toggle_func.Update = function()
+        Toggle.Update = function()
 					return TextLabel
 				end
-				return Toggle_func
+				return Toggle
 			end
 
         function Toggle:UpdateColors()
