@@ -5,9 +5,9 @@ local ThemeManager = {} do
 
 	ThemeManager.Library = nil
     ThemeManager.BuiltInThemes = {
-        ['Xenon Hub V1'] 		= { 1, httpService:JSONDecode('{"MainColor":"000f1e","AccentColor":"00b4f0","OutlineColor":"0a1e28","BackgroundColor":"050514","FontColor":"ffffff"}') },
-        ['Xenon Hub V2'] 		= { 2, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"181825","AccentColor":"ff3d3d","BackgroundColor":"16161f","OutlineColor":"323232"}') },
-        ['Deity Hub - Next Gen'] 		= { 3, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"1c1c1c","AccentColor":"0EDEFF","BackgroundColor":"141414","OutlineColor":"323232"}') }
+        ['Ex Hub V1'] 		= { 1, httpService:JSONDecode('{"MainColor":"000f1e","AccentColor":"00b4f0","OutlineColor":"0a1e28","BackgroundColor":"050514","FontColor":"ffffff"}') },
+        ['Ex Hub V2'] 		= { 2, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"181825","AccentColor":"ff3d3d","BackgroundColor":"16161f","OutlineColor":"323232"}') },
+        ['Ex Hub - Next Gen'] 		= { 3, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"1c1c1c","AccentColor":"0EDEFF","BackgroundColor":"141414","OutlineColor":"323232"}') }
 	}
 
 	function ThemeManager:ApplyTheme(theme)
