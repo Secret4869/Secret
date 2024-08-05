@@ -9,7 +9,7 @@ local RenderStepped = RunService.RenderStepped;
 local LocalPlayer = Players.LocalPlayer;
 local Mouse = LocalPlayer:GetMouse();
 
-if CoreGui:FindFirstChild("Delta") then CoreGui:FindFirstChild("Delta"):Destroy() end
+if CoreGui:FindFirstChild("Ex") then CoreGui:FindFirstChild("Ex"):Destroy() end
 
 local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end);
 
@@ -18,7 +18,7 @@ ProtectGui(ScreenGui);
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 ScreenGui.Parent = CoreGui;
-ScreenGui.Name = "Delta"
+ScreenGui.Name = "Ex"
 
 local Toggles = {};
 local Options = {};
@@ -55,8 +55,8 @@ local Library = {
 local RainbowStep = 0
 local Hue = 0
 
-table.insert(Library.Signals, RenderStepped:Connect(function(Delta)
-    RainbowStep = RainbowStep + Delta
+table.insert(Library.Signals, RenderStepped:Connect(function(Ex)
+    RainbowStep = RainbowStep + Ex
 
     if RainbowStep >= (1 / 60) then
         RainbowStep = 0
@@ -3681,14 +3681,14 @@ function Library:CreateWindow(...)
 
                 local Cursor = Drawing.new('Triangle');
                 Cursor.Thickness = 1;
-                Cursor.Filled = true;
-                Cursor.Visible = true;
+                Cursor.Filled = false;
+                Cursor.Visible = false;
 
                 local CursorOutline = Drawing.new('Triangle');
                 CursorOutline.Thickness = 1;
                 CursorOutline.Filled = false;
                 CursorOutline.Color = Color3.new(0, 0, 0);
-                CursorOutline.Visible = true;
+                CursorOutline.Visible = false;
 
                 while Toggled and ScreenGui.Parent do
                     InputService.MouseIconEnabled = false;
