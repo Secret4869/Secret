@@ -3710,8 +3710,8 @@ function Library:CreateWindow(...)
 
                 InputService.MouseIconEnabled = State;
 
-                Cursor:Remove();
-                CursorOutline:Remove();
+                --Cursor:Remove();
+                --CursorOutline:Remove();
             end);
         end;
 
