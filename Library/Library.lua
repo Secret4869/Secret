@@ -2091,59 +2091,61 @@ function Alc:NewWindow(WindowName:string,WindowDescription:string,WindowLogo:str
 
 	if UserInputService.TouchEnabled then
 		task.spawn(function()
-			local Toggle = Instance.new("ScreenGui")
-			local Frames = Instance.new("Frame")
-			local UICorner = Instance.new("UICorner")
-			local UIStroke = Instance.new("UIStroke")
-			local logo = Instance.new("ImageLabel")
-			local DropShadow = Instance.new("ImageLabel")
+local Toggle = Instance.new("ScreenGui")
+local Frames = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIStroke = Instance.new("UIStroke")
+local logo = Instance.new("ImageLabel")
+local DropShadow = Instance.new("ImageLabel")
 
-			Toggle.Name = "Toggle"
-			Toggle.Parent = Alc.CoreGui or game.Players.LocalPlayer:WaitForChild("PlayerGui")
-			Toggle.ZIndexBehavior = Enum.ZIndexBehavior.Global
+Toggle.Name = "Toggle"
+Toggle.Parent = Alc.CoreGui or game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Toggle.ZIndexBehavior = Enum.ZIndexBehavior.Global
 
-			Frames.Name = 'c4'
-			Frames.Parent = Toggle
-			Frames.AnchorPoint = Vector2.new(0.5, 0.5)
-			Frames.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-			Frames.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			Frames.BorderSizePixel = 0
-			Frames.Position = UDim2.new(0.886243403, 0, 0.194968551, 0)
-			Frames.Size = UDim2.new(0.100000003, 0, 0.100000003, 0)
-			Frames.SizeConstraint = Enum.SizeConstraint.RelativeYY
-			Frames.ZIndex = 67
+Frames.Name = 'c4'
+Frames.Parent = Toggle
+Frames.AnchorPoint = Vector2.new(0, 1)
+Frames.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Frames.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frames.BorderSizePixel = 0
+Frames.Position = UDim2.new(0, 0, 1, 0)
+Frames.Size = UDim2.new(0.1, 0, 0.1, 0)
+Frames.SizeConstraint = Enum.SizeConstraint.RelativeYY
+Frames.ZIndex = 67
+Frames.Active = false -- Prevent movement
+Frames.Selectable = false -- Prevent movement
 
-			UICorner.Parent = Frames
+UICorner.Parent = Frames
 
-			UIStroke.Color = Color3.fromRGB(121, 121, 121)
-			UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-			UIStroke.Parent = Frames
+UIStroke.Color = Color3.fromRGB(121, 121, 121)
+UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UIStroke.Parent = Frames
 
-			logo.Name = "logo"
-			logo.Parent = Frames
-			logo.AnchorPoint = Vector2.new(0.5, 0.5)
-			logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			logo.BackgroundTransparency = 1.010
-			logo.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			logo.BorderSizePixel = 0
-			logo.Position = UDim2.new(0.5, 0, 0.5, 0)
-			logo.Size = UDim2.new(0.899999976, 0, 0.899999976, 0)
-			logo.ZIndex = 68
-			logo.Image = WindowLogo
+logo.Name = "logo"
+logo.Parent = Frames
+logo.AnchorPoint = Vector2.new(0.5, 0.5)
+logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+logo.BackgroundTransparency = 1.010
+logo.BorderColor3 = Color3.fromRGB(0, 0, 0)
+logo.BorderSizePixel = 0
+logo.Position = UDim2.new(0.5, 0, 0.5, 0)
+logo.Size = UDim2.new(0.9, 0, 0.9, 0)
+logo.ZIndex = 68
+logo.Image = WindowLogo
 
-			DropShadow.Name = "DropShadow"
-			DropShadow.Parent = Frames
-			DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-			DropShadow.BackgroundTransparency = 1.000
-			DropShadow.BorderSizePixel = 0
-			DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-			DropShadow.Size = UDim2.new(1, 47, 1, 47)
-			DropShadow.ZIndex = 66
-			DropShadow.Image = "rbxassetid://6015897843"
-			DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-			DropShadow.ImageTransparency = 0.500
-			DropShadow.ScaleType = Enum.ScaleType.Slice
-			DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+DropShadow.Name = "DropShadow"
+DropShadow.Parent = Frames
+DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+DropShadow.BackgroundTransparency = 1.000
+DropShadow.BorderSizePixel = 0
+DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+DropShadow.Size = UDim2.new(1, 47, 1, 47)
+DropShadow.ZIndex = 66
+DropShadow.Image = "rbxassetid://6015897843"
+DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+DropShadow.ImageTransparency = 0.500
+DropShadow.ScaleType = Enum.ScaleType.Slice
+DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
 
 			local dragToggle = false
 			local dragStart = nil
