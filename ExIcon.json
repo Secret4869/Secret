@@ -1,6 +1,6 @@
 {
     "icons": {
-    --มีสี
+
     "Home": "rbxassetid://18819725886",
     "DualSwords": "rbxassetid://18819757189",
     "Portal": "rbxassetid://18819783131",
@@ -17,7 +17,7 @@
     "Lines": "rbxassetid://18819876561",
     "Question": "rbxassetid://18819884682",
     "People": "rbxassetid://18819890748",
-    --ที่เหลือ ไม่มี
+
     "aperture": "rbxassetid://7733666258",
     "bug": "rbxassetid://7733701545",
     "chevrons-down-up": "rbxassetid://7733720483",
