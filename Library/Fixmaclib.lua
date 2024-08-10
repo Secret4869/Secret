@@ -74,7 +74,7 @@ function MacLib:Window(Settings)
 	base.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	base.BorderSizePixel = 0
 	base.Position = UDim2.fromScale(0.5, 0.5)
-	base.Size = UDim2.fromOffset(650, 530)
+	base.Size = UDim2.fromOffset(550, 450)
 
 	local baseUIScale = Instance.new("UIScale")
 	baseUIScale.Name = "BaseUIScale"
