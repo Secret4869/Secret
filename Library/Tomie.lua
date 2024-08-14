@@ -493,14 +493,14 @@ function DeltaLib:Start(GuiConfig)
     ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ImageLabel.BorderSizePixel = 0
     ImageLabel.Size = UDim2.new(1, 0, 1, 0)
-    ImageLabel.Image = "http://www.roblox.com/asset/?id=18678109959"
+    ImageLabel.Image = "http://www.roblox.com/asset/?id=18483333121"
 
     UICorner_2.CornerRadius = UDim.new(1, 0)
     UICorner_2.Parent = ImageLabel
 
     Click23.Name = "Click"
     Click23.Parent = shit
-    Click23.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Click23.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     Click23.BackgroundTransparency = 1.000
     Click23.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Click23.BorderSizePixel = 0
@@ -519,9 +519,6 @@ function DeltaLib:Start(GuiConfig)
 
     uiconcac.CornerRadius = UDim.new(1, 0)
     uiconcac.Parent = Click23
-
-    UICorner.CornerRadius = UDim.new(0, 5)
-    UICorner.Parent = Main
 
     Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Top.BackgroundTransparency = 0.9990000128746033
