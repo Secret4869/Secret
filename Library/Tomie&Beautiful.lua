@@ -4283,61 +4283,60 @@ local ClosureBindings = {
                     SliderRail,
                 })
 
-                Creator.AddSignal(SliderDot.InputBegan, function(Input)
-                    if
-                        Input.UserInputType == Enum.UserInputType.MouseButton1
-                        or Input.UserInputType == Enum.UserInputType.Touch
-                    then
-                        Dragging = true
-                    end
-                end)
+        local function UpdateSlider(Input)
+            local Delta = Input.Position.X - StartMousePosition.X
+            local NewDotPosition = UDim2.new(math.clamp((StartDotPosition.X.Scale + (Delta / SliderRail.AbsoluteSize.X)), 0, 1), -7, 0.5, 0)
+            SliderDot.Position = NewDotPosition
+            SliderFill.Size = UDim2.new(NewDotPosition.X.Scale, 0, 1, 0)
+            local Value = Slider.Min + (Slider.Max - Slider.Min) * NewDotPosition.X.Scale
+            Slider:SetValue(Value)
+        end
 
-                Creator.AddSignal(SliderDot.InputEnded, function(Input)
-                    if
-                        Input.UserInputType == Enum.UserInputType.MouseButton1
-                        or Input.UserInputType == Enum.UserInputType.Touch
-                    then
+        Creator.AddSignal(SliderDot.InputBegan, function(Input)
+            if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+                Dragging = true
+                DragInput = Input
+                StartMousePosition = Input.Position
+                StartDotPosition = SliderDot.Position
+
+                Input.Changed:Connect(function()
+                    if Input.UserInputState == Enum.UserInputState.End then
                         Dragging = false
                     end
                 end)
+            end
+        end)
 
-                Creator.AddSignal(UserInputService.InputChanged, function(Input)
-                    if
-                        Dragging
-                        and (
-                            Input.UserInputType == Enum.UserInputType.MouseMovement
-                                or Input.UserInputType == Enum.UserInputType.Touch
-                        )
-                    then
-                        local SizeScale =
-                            math.clamp((Input.Position.X - SliderRail.AbsolutePosition.X) / SliderRail.AbsoluteSize.X, 0, 1)
-                        Slider:SetValue(Slider.Min + ((Slider.Max - Slider.Min) * SizeScale))
-                    end
-                end)
+        Creator.AddSignal(UserInputService.InputChanged, function(Input)
+            if Dragging and Input == DragInput and (Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch) then
+                UpdateSlider(Input)
+            end
+        end)
 
-                function Slider:OnChanged(Func)
-                    Slider.Changed = Func
-                    Func(Slider.Value)
-                end
+        function Slider:OnChanged(Func)
+            Slider.Changed = Func
+            Func(Slider.Value)
+        end
 
-                function Slider:SetValue(Value)
-                    self.Value = Library:Round(math.clamp(Value, Slider.Min, Slider.Max), Slider.Rounding)
-                    SliderDot.Position = UDim2.new((self.Value - Slider.Min) / (Slider.Max - Slider.Min), -7, 0.5, 0)
-                    SliderFill.Size = UDim2.fromScale((self.Value - Slider.Min) / (Slider.Max - Slider.Min), 1)
-                    SliderDisplay.Text = tostring(self.Value)
+        function Slider:SetValue(Value)
+            self.Value = Library:Round(math.clamp(Value, Slider.Min, Slider.Max), Slider.Rounding)
+            local Scale = (self.Value - Slider.Min) / (Slider.Max - Slider.Min)
+            SliderDot.Position = UDim2.new(Scale, -7, 0.5, 0)
+            SliderFill.Size = UDim2.new(Scale, 0, 1, 0)
+            SliderDisplay.Text = tostring(self.Value)
 
-                    Library:SafeCallback(Slider.Callback, self.Value)
-                    Library:SafeCallback(Slider.Changed, self.Value)
-                end
+            Library:SafeCallback(Slider.Callback, self.Value)
+            Library:SafeCallback(Slider.Changed, self.Value)
+        end
 
-                function Slider:Destroy()
-                    SliderFrame:Destroy()
-                    Library.Options[Idx] = nil
-                end
+        function Slider:Destroy()
+            SliderFrame:Destroy()
+            Library.Options[Idx] = nil
+        end
 
-                Slider:SetValue(Config.Default)
+        Slider:SetValue(Config.Default)
 
-                Library.Options[Idx] = Slider
+        Library.Options[Idx] = Slider
 
                 -- TOGGLE
                 do 
