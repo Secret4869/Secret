@@ -3140,6 +3140,48 @@ function Element:New(Idx, Config)
         Dropdown:Open()
     end)
 
+    -- ติดตามการเลื่อน
+    local IsScrolling = false
+    local lastScrollPosition = DropdownScrollFrame.CanvasPosition.Y
+    DropdownScrollFrame:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
+        if math.abs(DropdownScrollFrame.CanvasPosition.Y - lastScrollPosition) > 0 then
+            IsScrolling = true
+            lastScrollPosition = DropdownScrollFrame.CanvasPosition.Y
+            task.delay(0.1, function() IsScrolling = false end) -- รีเซ็ตสถานะหลังจาก 0.1 วินาที
+        end
+    end)
+
+    -- ฟังก์ชัน TrySelect เพื่อลดการเลือกโดยไม่ได้ตั้งใจ
+    local function TrySelect(ButtonLabel, Input)
+        if not IsScrolling and (Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch) then
+            task.wait(0.1) -- หน่วงเวลาเล็กน้อยเพื่อตรวจสอบการเลื่อน
+            if not IsScrolling then -- ตรวจสอบอีกครั้งว่าการเลื่อนหยุดลงแล้ว
+                -- โค้ดเดิมสำหรับการเลือกที่นี่
+                local Try = not Selected
+                if Dropdown:GetActiveValues() == 1 and not Try and not Config.AllowNull then
+                    -- ไม่มีการทำอะไรถ้าไม่อนุญาตให้เลือกค่า null
+                else
+                    if Config.Multi then
+                        Selected = Try
+                        Dropdown.Value[Value] = Selected and true or nil
+                    else
+                        Selected = Try
+                        Dropdown.Value = Selected and Value or nil
+
+                        for _, OtherButton in next, Buttons do
+                            OtherButton:UpdateButton()
+                        end
+                    end
+
+                    Table:UpdateButton()
+                    Dropdown:Display()
+                    Library:SafeCallback(Dropdown.Callback, Dropdown.Value)
+                    Library:SafeCallback(Dropdown.Changed, Dropdown.Value)
+                end
+            end
+        end
+    end
+
     Creator.AddSignal(UserInputService.InputBegan, function(Input)
         if
             Input.UserInputType == Enum.UserInputType.MouseButton1
@@ -3300,32 +3342,7 @@ function Element:New(Idx, Config)
                     end
 
                     ButtonLabel.InputBegan:Connect(function(Input)
-                        if
-                            not IsScrolling and
-                            (Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch)
-                        then
-                            local Try = not Selected
-
-                            if Dropdown:GetActiveValues() == 1 and not Try and not Config.AllowNull then
-                            else
-                                if Config.Multi then
-                                    Selected = Try
-                                    Dropdown.Value[Value] = Selected and true or nil
-                                else
-                                    Selected = Try
-                                    Dropdown.Value = Selected and Value or nil
-
-                                    for _, OtherButton in next, Buttons do
-                                        OtherButton:UpdateButton()
-                                    end
-                                end
-
-                                Table:UpdateButton()
-                                Dropdown:Display()
-                                Library:SafeCallback(Dropdown.Callback, Dropdown.Value)
-                                Library:SafeCallback(Dropdown.Changed, Dropdown.Value)
-                            end
-                        end
+                        TrySelect(ButtonLabel, Input)
                     end)
 
                     Table:UpdateButton()
@@ -3504,33 +3521,7 @@ function Element:New(Idx, Config)
             end
 
             ButtonLabel.InputBegan:Connect(function(Input)
-                if
-                    not IsScrolling and
-                    (Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch)
-                then
-                    local Try = not Selected
-
-                    if Dropdown:GetActiveValues() == 1 and not Try and not Config.AllowNull then
-                    else
-                        if Config.Multi then
-                            Selected = Try
-                            Dropdown.Value[Value] = Selected and true or nil
-                        else
-                            Selected = Try
-                            Dropdown.Value = Selected and Value or nil
-
-                            for _, OtherButton in next, Buttons do
-                                OtherButton:UpdateButton()
-                            end
-                        end
-
-                        Table:UpdateButton()
-                        Dropdown:Display()
-
-                        Library:SafeCallback(Dropdown.Callback, Dropdown.Value)
-                        Library:SafeCallback(Dropdown.Changed, Dropdown.Value)
-                    end
-                end
+                TrySelect(ButtonLabel, Input)
             end)
 
             Table:UpdateButton()
@@ -3640,7 +3631,6 @@ function Element:New(Idx, Config)
 end
 
 return Element
-
         end)() end,
     [23] = function()local wax,script,require=ImportGlobals(23)local ImportGlobals return (function(...)local Root = script.Parent.Parent
             local Components = Root.Components
