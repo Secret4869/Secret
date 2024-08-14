@@ -481,42 +481,47 @@ function DeltaLib:Start(GuiConfig)
     shit.BorderColor3 = Color3.fromRGB(0, 0, 0)
     shit.BorderSizePixel = 0
     shit.ClipsDescendants = true
-    shit.Position = UDim2.new(0.954463005, 0, 0.894736826, 0)
+    shit.Position = UDim2.new(0, 0, 1, -45)
     shit.Size = UDim2.new(0, 45, 0, 45)
 
+    local UICorner1 = Instance.new("UICorner")
     UICorner1.CornerRadius = UDim.new(1, 0)
     UICorner1.Parent = shit
 
+    local ImageLabel = Instance.new("ImageLabel")
     ImageLabel.Parent = shit
     ImageLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    ImageLabel.BackgroundTransparency = 1.000
+    ImageLabel.BackgroundTransparency = 1
     ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ImageLabel.BorderSizePixel = 0
     ImageLabel.Size = UDim2.new(1, 0, 1, 0)
     ImageLabel.Image = "http://www.roblox.com/asset/?id=18483333121"
 
+    local UICorner_2 = Instance.new("UICorner")
     UICorner_2.CornerRadius = UDim.new(1, 0)
     UICorner_2.Parent = ImageLabel
 
+    local Click23 = Instance.new("TextButton")
     Click23.Name = "Click"
     Click23.Parent = shit
     Click23.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    Click23.BackgroundTransparency = 1.000
+    Click23.BackgroundTransparency = 1
     Click23.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Click23.BorderSizePixel = 0
     Click23.Size = UDim2.new(1, 0, 1, 0)
     Click23.Font = Enum.Font.SourceSans
     Click23.Text = ""
     Click23.TextColor3 = Color3.fromRGB(0, 0, 0)
-    Click23.TextSize = 14.000
+    Click23.TextSize = 14
     Click23.MouseButton1Click:Connect(function()
-        if Main.Visible == false then
+            if Main.Visible == false then
             Main.Visible = true
         else
             Main.Visible = false
         end
     end)
 
+    local uiconcac = Instance.new("UICorner")
     uiconcac.CornerRadius = UDim.new(1, 0)
     uiconcac.Parent = Click23
 
