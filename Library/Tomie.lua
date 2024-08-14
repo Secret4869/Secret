@@ -2172,7 +2172,7 @@ function DeltaLib:Start(GuiConfig)
                     else
                         DropdownBox.Text = tostring(DropdownValueTable)
                     end
-                    DropdownConfig.Callback(DropdownFunc.Value)
+                    DropdownConfig.Callback(unpack(DropdownFunc.Value))  -- Adjusted to unpack directly
                 end
                 function DropdownFunc:Add(OptionName)
                     local OptionName = OptionName or "Option"
