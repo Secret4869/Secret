@@ -477,7 +477,7 @@ function DeltaLib:Start(GuiConfig)
 
     shit.Name = "shit"
     shit.Parent = DeltaGui
-    shit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    shit.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     shit.BorderColor3 = Color3.fromRGB(0, 0, 0)
     shit.BorderSizePixel = 0
     shit.ClipsDescendants = true
@@ -488,7 +488,7 @@ function DeltaLib:Start(GuiConfig)
     UICorner1.Parent = shit
 
     ImageLabel.Parent = shit
-    ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ImageLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     ImageLabel.BackgroundTransparency = 1.000
     ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ImageLabel.BorderSizePixel = 0
