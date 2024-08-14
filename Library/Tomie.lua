@@ -471,9 +471,6 @@ function DeltaLib:Start(GuiConfig)
     Main.Name = "Main"
     Main.Parent = DeltaGui
     Main.Position = UDim2.new(0, (DeltaGui.AbsoluteSize.X // 2 - Main.Size.X.Offset // 2), 0, (DeltaGui.AbsoluteSize.Y // 2 - Main.Size.Y.Offset // 2))
-    
-    UICorner.CornerRadius = UDim.new(0, 5)
-    UICorner.Parent = Main
 
     shit.Name = "shit"
     shit.Parent = DeltaGui
@@ -524,6 +521,9 @@ function DeltaLib:Start(GuiConfig)
     local uiconcac = Instance.new("UICorner")
     uiconcac.CornerRadius = UDim.new(1, 0)
     uiconcac.Parent = Click23
+
+    UICorner.CornerRadius = UDim.new(0, 5)
+    UICorner.Parent = Main
 
     Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Top.BackgroundTransparency = 0.9990000128746033
