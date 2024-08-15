@@ -4385,7 +4385,7 @@ local ClosureBindings = {
                             }
                         }, {
                             New("UICorner", {
-                                CornerRadius = UDim.new(0, 4),
+                                CornerRadius = UDim.new(1, 0),
                             }),
                             ToggleCircle,
                             ToggleInteract,
