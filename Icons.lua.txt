@@ -378,5 +378,5 @@ return {
   ["lucide-Computer"] = "rbxassetid://18819871134",
   ["lucide-Lines"] = "rbxassetid://18819876561",
   ["lucide-Question"] = "rbxassetid://18819884682",
-  ["lucide-People"] = "rbxassetid://18819890748",
+  ["lucide-People"] = "rbxassetid://18819890748"
 }
