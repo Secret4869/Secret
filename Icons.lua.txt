@@ -818,25 +818,4 @@ return {
   ["lucide-x-square"] = "rbxassetid://10747384217",
   ["lucide-zoom-in"] = "rbxassetid://10747384552",
   ["lucide-zoom-out"] = "rbxassetid://10747384679",
-  []
 }
-
-
-
-
-"Home": "rbxassetid://18819725886",
-    "DualSwords": "rbxassetid://18819757189",
-    "Portal": "rbxassetid://18819783131",
-    "Map": "rbxassetid://18819787869",
-    "Arm": "rbxassetid://18819793301",
-    "Refresh": "rbxassetid://18819798257",
-    "File": "rbxassetid://18819802878",
-    "Present": "rbxassetid://18819807269",
-    "Search": "rbxassetid://18819819304",
-    "Marker": "rbxassetid://18819828311",
-    "Axe": "rbxassetid://18819864885",
-    "Settings": "rbxassetid://18819867531",
-    "Computer": "rbxassetid://18819871134",
-    "Lines": "rbxassetid://18819876561",
-    "Question": "rbxassetid://18819884682",
-    "People": "rbxassetid://18819890748",
