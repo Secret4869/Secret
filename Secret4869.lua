@@ -858,7 +858,7 @@ return function(props)
 			}),
 		}),
 	})
-
+--[[
     local Logo_Background = Instance.new("ImageLabel")
     Logo_Background.Name = "Ex"
     Logo_Background.Parent = AcrylicPaint.Frame
@@ -870,7 +870,7 @@ return function(props)
     Logo_Background.Size = UDim2.new(0, 480, 0, 380)
     Logo_Background.ImageTransparency = 0.7
     Logo_Background.Image = ExLogoHub
-
+]]
 	local Blur
 
 	if require(script.Parent.Parent).UseAcrylic then
@@ -945,7 +945,7 @@ return function(Theme, Parent, DialogCheck)
 	local Button = {}
 
 	Button.Title = New("TextLabel", {
-		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),
 		TextColor3 = Color3.fromRGB(200, 200, 200),
 		TextSize = 14,
 		TextWrapped = true,
@@ -1082,7 +1082,7 @@ function Dialog:Create()
 
 	NewDialog.Title = New("TextLabel", {
 		FontFace = Font.new(
-			"rbxasset://fonts/families/GothamSSm.json",
+			"rbxasset://fonts/families/FredokaOne.json",
 			Enum.FontWeight.SemiBold,
 			Enum.FontStyle.Normal
 		),
@@ -1190,7 +1190,7 @@ return function(Title, Desc, Parent, Hover)
 	local Element = {}
 
 	Element.TitleLabel = New("TextLabel", {
-		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal),
 		Text = Title,
 		TextColor3 = Color3.fromRGB(240, 240, 240),
 		TextSize = 13,
@@ -1204,7 +1204,7 @@ return function(Title, Desc, Parent, Hover)
 	})
 
 	Element.DescLabel = New("TextLabel", {
-		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),
 		Text = Desc,
 		TextColor3 = Color3.fromRGB(200, 200, 200),
 		TextSize = 12,
@@ -1363,7 +1363,7 @@ function Notification:New(Config)
 		RichText = true,
 		TextColor3 = Color3.fromRGB(255, 255, 255),
 		TextTransparency = 0,
-		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),
 		TextSize = 13,
 		TextXAlignment = "Left",
 		TextYAlignment = "Center",
@@ -1376,7 +1376,7 @@ function Notification:New(Config)
 	})
 
 	NewNotification.ContentLabel = New("TextLabel", {
-		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),
 		Text = Config.Content,
 		TextColor3 = Color3.fromRGB(240, 240, 240),
 		TextSize = 14,
@@ -1392,7 +1392,7 @@ function Notification:New(Config)
 	})
 
 	NewNotification.SubContentLabel = New("TextLabel", {
-		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),
 		Text = Config.SubContent,
 		TextColor3 = Color3.fromRGB(240, 240, 240),
 		TextSize = 14,
@@ -1550,7 +1550,7 @@ return function(Title, Parent)
 			RichText = true,
 			Text = Title,
 			TextTransparency = 0,
-			FontFace = Font.new("rbxassetid://12187365364", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
 			TextSize = 18,
 			TextXAlignment = "Left",
 			TextYAlignment = "Center",
@@ -1640,7 +1640,7 @@ function TabModule:New(Title, Icon, Parent)
 			TextColor3 = Color3.fromRGB(255, 255, 255),
 			TextTransparency = 0,
 			FontFace = Font.new(
-				"rbxasset://fonts/families/GothamSSm.json",
+				"rbxasset://fonts/families/FredokaOne.json",
 				Enum.FontWeight.Regular,
 				Enum.FontStyle.Normal
 			),
@@ -1778,7 +1778,7 @@ return function(Parent, Acrylic)
 	local Textbox = {}
 
 	Textbox.Input = New("TextBox", {
-		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),
 		TextColor3 = Color3.fromRGB(200, 200, 200),
 		TextSize = 14,
 		TextXAlignment = Enum.TextXAlignment.Left,
@@ -1975,7 +1975,7 @@ return function(Config)
 				RichText = true,
 				Text = Config.Title,
 				FontFace = Font.new(
-					"rbxasset://fonts/families/GothamSSm.json",
+					"rbxasset://fonts/families/FredokaOne.json",
 					Enum.FontWeight.Regular,
 					Enum.FontStyle.Normal
 				),
@@ -1994,7 +1994,7 @@ return function(Config)
 				Text = Config.SubTitle,
 				TextTransparency = 0.4,
 				FontFace = Font.new(
-					"rbxasset://fonts/families/GothamSSm.json",
+					"rbxasset://fonts/families/FredokaOne.json",
 					Enum.FontWeight.Regular,
 					Enum.FontStyle.Normal
 				),
@@ -2154,7 +2154,7 @@ return function(Config)
 		RichText = true,
 		Text = "Tab",
 		TextTransparency = 0,
-		FontFace = Font.new("rbxassetid://12187365364", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
 		TextSize = 28,
 		TextXAlignment = "Left",
 		TextYAlignment = "Center",
@@ -2399,7 +2399,7 @@ return function(Config)
 		Dialog.Title.Text = Config.Title
 
 		local Content = New("TextLabel", {
-			FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+			FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),
 			Text = Config.Content,
 			TextColor3 = Color3.fromRGB(240, 240, 240),
 			TextSize = 14,
@@ -2765,7 +2765,7 @@ function Element:New(Idx, Config)
 		local function CreateInputLabel(Text, Pos)
 			return New("TextLabel", {
 				FontFace = Font.new(
-					"rbxasset://fonts/families/GothamSSm.json",
+					"rbxasset://fonts/families/FredokaOne.json",
 					Enum.FontWeight.Medium,
 					Enum.FontStyle.Normal
 				),
@@ -3223,7 +3223,7 @@ function Element:New(Idx, Config)
 	Dropdown.SetDesc = DropdownFrame.SetDesc
 
 	local DropdownDisplay = New("TextLabel", {
-		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
 		Text = "Value",
 		TextColor3 = Color3.fromRGB(240, 240, 240),
 		TextSize = 13,
@@ -3479,7 +3479,7 @@ function Element:New(Idx, Config)
 			})
 
 			local ButtonLabel = New("TextLabel", {
-				FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+				FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),
 				Text = Value,
 				TextColor3 = Color3.fromRGB(200, 200, 200),
 				TextSize = 13,
@@ -3823,7 +3823,7 @@ function Element:New(Idx, Config)
 	Keybind.SetDesc = KeybindFrame.SetDesc
 
 	local KeybindDisplayLabel = New("TextLabel", {
-		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+		FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
 		Text = Config.Default,
 		TextColor3 = Color3.fromRGB(240, 240, 240),
 		TextSize = 13,
@@ -4089,7 +4089,7 @@ return Paragraph
         })
 
         local SliderDisplay = New("TextLabel", {
-            FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json"),
+            FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json"),
             Text = "Value",
             TextSize = 12,
             TextWrapped = true,
