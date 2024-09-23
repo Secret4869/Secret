@@ -75,10 +75,10 @@ Discord:AddDiscordInvite({
     Invite = "https://discord.gg/KMK6gXevWV"
 })
 Setting:AddSection("Settings")
-Select_W = Setting:AddDropdown({"Select Weapon", Weaponlist, {Weaponlist[1]}, function(call)
+Select_W = Setting:AddDropdown({languageData["Select Weapon"], Weaponlist, {Weaponlist[1]}, function(call)
     Settings.ToolFarm = call
 end, "Select_ToolFarm"})
-Setting:AddButton({"Refresh Weapon", function()
+Setting:AddButton({languageData["Refresh Weapon"], function()
 Weaponlist = {}
     for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
         if v:IsA("Tool") then
@@ -89,11 +89,11 @@ Weaponlist = {}
         end
     Select_W:Set(Weaponlist)
 end})
-Setting:AddDropdown({"Select Method", Mode, {Mode[3]}, function(call)
+Setting:AddDropdown({languageData["Select Method"], Mode, {Mode[3]}, function(call)
     Settings.Method = call
 end, "Select_Method"})
-AddSlider(Setting, "Farm Distance","", 0, 100, Settings.FarmDistance, "Farm_Distance")
-Setting:AddSection("Automatic Skill")
+AddSlider(Setting, languageData["Farm Distance"],"", 0, 100, Settings.FarmDistance, "Farm_Distance")
+Setting:AddSection(languageData["Automatic Skill"])
 Setting:AddToggle({"Z", Settings.Atomatic_SkillZ, function(call)
     Settings.Atomatic_SkillZ = call
 end, "Atomatic_SkillZ"})
@@ -107,15 +107,15 @@ Setting:AddToggle({"V", Settings.Atomatic_SkillV, function(call)
     Settings.Atomatic_SkillV = call
 end, "Atomatic_SkillV"})
 --------// [ General ] \\--------
-General:AddSection("Automatic Spawn Boss + Automatic Farm Boss")
+General:AddSection(languageData["Automatic Spawn Boss + Automatic Farm Boss"])
 for _, bossData in pairs(LoadBoss) do
     AddToggle(General, "Automatic Spawn Boss " .. bossData[3], "Need <font color='rgb(252, 1, 127)'>".. bossData[1] .."</font>   If you don't have it, you'll buy it for me automatically", Settings[bossData[3]], "Automatic_Spawn_Boss_" .. bossData[3])
 end
-General:AddSection("Automatic Farm All Boss")
+General:AddSection(languageData["Automatic Farm All Boss"])
 AddToggle(General, "Automatic Farm All Boss", "", Settings.Automatic_Farm_All_Boss, "Automatic_Farm_All_Boss")
 General:AddSection(" Automatic Farm")
-Select_M = AddDropdownS(General,"Select Enemie","", MobsList, {MobsList[1]},true,"Select_Enemie")
-General:AddButton({"Refresh Mobs", function()
+Select_M = AddDropdownS(General,languageData["Select Enemie"],"", MobsList, {MobsList[1]},true,"Select_Enemie")
+General:AddButton({languageData["Refresh Mobs"], function()
 MobsList = {}
     for i,v in pairs(workspace["มอนเตอร์"]:GetDescendants()) do
         if v:IsA("Model") then
@@ -126,11 +126,11 @@ MobsList = {}
         end
     Select_M:Set(MobsList)
 end})
-AddToggle(General, "Automatic Farm", "", Settings.Atomatic_Level, "Atomatic_Level")
+AddToggle(General, languageData["Automatic Farm Mobs Select"], "", Settings.Atomatic_Level, "Atomatic_Level")
 --------// [ Miscellaneous ] \\--------
-AddToggle(Miscellaneous, "Instant Kill", "<font color='rgb(252, 1, 127)'>".. languageData["instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work "] .."</font>", Settings.Instant_Kill, "Instant Kill")
-AddToggle(Miscellaneous, "Automatic Grab Item", "", Settings.Automatic_GrabItem, "Automatic_GrabItem")
-Miscellaneous:AddButton({"Redeem All Codes", function()
+AddToggle(Miscellaneous, languageData["Instant Kill"], "<font color='rgb(252, 1, 127)'>".. languageData["instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work "] .."</font>", Settings.Instant_Kill, "Instant Kill")
+AddToggle(Miscellaneous, languageData["Automatic Grab Item"], "", Settings.Automatic_GrabItem, "Automatic_GrabItem")
+Miscellaneous:AddButton({languageData["Redeem All Codes"], function()
     for _,v in pairs(localplayer.Codes:GetChildren()) do
         local args = {
             [1] = v.Name
