@@ -1,5 +1,6 @@
 {
   "If the Shadow boss spawns, it will kill it for you. Once you get the Shadow orb, it will go to the NPC that randomly gives items to try to find the Blade and Yami. If neither of these two items is found and the money is more than 500k.": "ถ้ามี บอส Shadow เกิด มัน จะ ฆ่า ให้ เเละ ถ้า ได้ Shadow orb เเล้ว มัน จะ ทำ การ ไป ที่ Npc สุ่ม ของ เพื่อ สุ่ม หา ไอเทม Blade กับ Yami หา ไม่มี 2 ชิ้น นี้ เเละ เงิน ต้อง มาก กว่า 500k.",
   "Recommended to use with skills.": "เเนะนำให้ ใช้กับ สกิล จะ เป็น สกิล อะไร ก็ได้",
-  "Auto Attack": "ออโต้ โจมตี"
+  "Auto Attack": "ออโต้ โจมตี",
+  "Select Method": "เลือก มุม"
 }
