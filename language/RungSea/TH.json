@@ -1,3 +1,16 @@
 {
-  "instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work ": "ใช้ได้ กับ บอส ปกติ เเละ บอส เสก เท่า นั้น เเละ ถ้า ปิง เยอะ ไป มอน จะ บัค มอนจะไม่ตาย"
+    "instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work ": "ใช้ได้ กับ บอส ปกติ เเละ บอสเสก เท่า นั้น เเละ ถ้า ปิง เยอะ ไป มอน จะ บัค มอนจะไม่ตาย",
+    "Select Weapon": "เลือกอาวุธ",
+    "Refresh Weapon": "รีเฟรชอาวุธ",
+    "Select Method": "เลือกมุม",
+    "Farm Distance": "ระยะ ฟาม",
+    "Automatic Skill": "ออโต้ สกิล",
+    "Automatic Spawn Boss + Automatic Farm Boss": "ออโต้ เสก บอส + ออโต้ฟาม บอสเสก",
+    "Automatic Farm All Boss": "ฟามบอส ทุก ตัว",
+    "Select Enemie": "เลือก มอน",
+    "Refresh Mobs": "รีเฟรช มอน",
+    "Automatic Farm Mobs Select": "ฟาม มอน ที่เลือก",
+    "Instant Kill": "วันซอต",
+    "Automatic Grab Item": "ดึงของ",
+    "Redeem All Codes": "ใช้ทุกโค็ด"
 }
