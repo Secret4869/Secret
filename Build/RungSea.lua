@@ -129,7 +129,7 @@ end})
 AddToggle(General, languageData["Automatic Farm Mobs Select"], "", Settings.Atomatic_Level, "Atomatic_Level")
 --------// [ Miscellaneous ] \\--------
 AddToggle(Miscellaneous, languageData["Instant Kill"], "<font color='rgb(252, 1, 127)'>".. languageData["instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work "] .."</font>", Settings.Instant_Kill, "Instant Kill")
-AddToggle(Miscellaneous, languageData["Automatic Grab Item"], "", Settings.Automatic_GrabItem, "Automatic_GrabItem")
+AddToggle(Miscellaneous, languageData["Automatic Grab Item Not recommended"], "", Settings.Automatic_GrabItem, "Automatic_GrabItem")
 Miscellaneous:AddButton({languageData["Redeem All Codes"], function()
     for _,v in pairs(localplayer.Codes:GetChildren()) do
         local args = {
