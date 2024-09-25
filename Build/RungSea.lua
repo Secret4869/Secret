@@ -107,7 +107,7 @@ end, "Atomatic_SkillV"})
 --------// [ General ] \\--------
 General:AddSection("Raid")
 General:AddButton({"Tp Raid", function()
-    Root.CFrame = position_raid
+    Tp(position_raid)
 end})
 AddToggle(General, "Atomatic Clear RaidTrash", " Cannot Instant Kill", Settings.Atomatic_Clear_RaidTrash, "Atomatic_Clear_RaidTrash")
 General:AddSection(languageData["Automatic Spawn Boss + Automatic Farm Boss"])
