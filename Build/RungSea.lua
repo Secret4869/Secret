@@ -8,7 +8,7 @@ local Discord = Window:MakeTab({"Discord", "Info"})
 local Setting = Window:MakeTab({"Setting Farm", "settings"})
 local General = Window:MakeTab({"General", "home"})
 local Item = Window:MakeTab({"Item", "Swords"})
---local Teleport = Window:MakeTab({"Teleport", "mountain-snow"})
+local Teleport = Window:MakeTab({"Teleport", "mountain-snow"})
 local Miscellaneous = Window:MakeTab({"Miscellaneous", "axe"})
 local function AddToggle(Tab, Name, Description, Default, Flag)
     local Ver = Tab:AddToggle({
@@ -114,6 +114,9 @@ General:AddSection(languageData["Automatic Spawn Boss + Automatic Farm Boss"])
 for _, bossData in pairs(LoadBoss) do
     AddToggle(General, "Automatic Spawn Boss " .. bossData[3], "Need <font color='rgb(252, 1, 127)'>".. bossData[1] .."</font>   If you don't have it, you'll buy it for me automatically", Settings[bossData[3]], "Automatic_Spawn_Boss_" .. bossData[3])
 end
+for _, BossData2 in pairs(LoadBoss2) do
+    AddToggle(General, "Automatic Spawn Boss " .. BossData2[5], "Need <font color='rgb(252, 1, 127)'>".. BossData2[3] .."</font>   If you don't have it, you'll buy it for me automatically", Settings[BossData2[5]], "Automatic_Spawn_Boss_" .. BossData2[5])
+end
 General:AddSection(languageData["Automatic Farm All Boss"])
 AddToggle(General, languageData["Automatic Farm All Boss"], "", Settings.Automatic_Farm_All_Boss, "Automatic_Farm_All_Boss")
 General:AddSection(" Automatic Farm")
@@ -132,6 +135,15 @@ end})
 AddToggle(General, languageData["Automatic Farm Mobs Select"], "", Settings.Atomatic_Level, "Atomatic_Level")
 --------// [ Item ] \\--------
 AddToggle(Item, languageData["Automatic Get Guntip Beta Test"], "", Settings.Atomatic_GetGuntip, "Atomatic_GetGuntip")
+AddToggle(Item, languageData["Automatic Get Sang Tin ja Test"], "", Settings.Atomatic_Get_STJ, "Atomatic_Get_STJ")
+--------// [ Teleport ] \\--------
+for _, prompt in pairs(workspace.Seller:GetDescendants()) do
+    if prompt:IsA("ProximityPrompt") then
+        Teleport:AddButton({prompt.ActionText, function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = prompt.Parent.CFrame
+        end})
+    end
+end
 --------// [ Miscellaneous ] \\--------
 AddToggle(Miscellaneous, languageData["Instant Kill"], "<font color='rgb(252, 1, 127)'>".. languageData["instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work "] .."</font>", Settings.Instant_Kill, "Instant Kill")
 AddToggle(Miscellaneous, languageData["Automatic Grab Item Not recommended"], "", Settings.Automatic_GrabItem, "Automatic_GrabItem")
