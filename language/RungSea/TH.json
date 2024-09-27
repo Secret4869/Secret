@@ -1,5 +1,5 @@
 {
-    "instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work ": "ใช้ได้ กับ บอส ปกติ เเละ บอสเสก เท่า นั้น เเละ ถ้า ปิง เยอะ ไป มอน จะ บัค มอนจะไม่ตาย",
+    "instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work and Cannot Instant Kill BossFight": "ใช้ได้ กับ บอส ปกติ เเละ บอสเสก เท่า นั้น เเละ ถ้า ปิง เยอะ ไป มอน จะ บัค มอนจะไม่ตาย ไม่ สามารถ ใช้กับ BossFight ได้",
     "Select Weapon": "เลือกอาวุธ",
     "Refresh Weapon": "รีเฟรชอาวุธ",
     "Select Method": "เลือกมุม",
@@ -13,9 +13,11 @@
     "Instant Kill": "วันซอต",
     "Automatic Grab Item Not recommended": "ดึงของ ไม่เเนะนำให้ใช้",
     "Redeem All Codes": "ใช้ทุกโค็ด",
-    "Automatic Get Guntip Beta Test": "ออโต้ ทำ Guntip",
-    "Automatic Clear RaidTrash": "ออโต้ ลงRaid",
+    "Automatic Craft Guntip Beta Test": "ออโต้ ทำ Guntip",
+    "Automatic Clear Eazy BossFight": "ออโต้ ลง Eazy BossFight",
+    "Automatic Clear Hard BossFight": "ออโต้ ลง Hard BossFight",
     "Tp Raid": "วาปไป จุด กดลง Raid",
     "Automatic Spawn Heaven Man lv.4000": "ออโต้ เสก Heaven Man lv.4000",
-    "Automatic Get Sang Tin ja Test": "ออโต้ ทำ Sang Tin ja Test"
+    "Automatic Craft Sang Tin JA": "ออโต้ ทำ Sang Tin ja Test",
+    "Automatic Craft Cyn": "ออโต้ ทำ Cyn"
 }
