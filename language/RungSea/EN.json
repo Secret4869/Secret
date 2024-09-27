@@ -1,5 +1,5 @@
 {
-    "instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work ": "translate_me",
+    "instant Kill Work On Boss Spawn and Normal Boss and if ping Too much server won't work and Cannot Instant Kill BossFight": "translate_me",
     "Select Weapon": "translate_me",
     "Refresh Weapon": "translate_me",
     "Select Method": "translate_me",
@@ -13,9 +13,11 @@
     "Instant Kill": "translate_me",
     "Automatic Grab Item Not recommended": "translate_me",
     "Redeem All Codes": "translate_me",
-    "Automatic Get Guntip Beta Test": "translate_me",
-    "Automatic Clear RaidTrash": "translate_me",
+    "Automatic Craft Guntip Beta Test": "translate_me",
+    "Automatic Clear Eazy Raid": "translate_me",
+    "Automatic Clear Hard Raid": "translate_me",
     "Tp Raid": "translate_me",
     "Automatic Spawn Heaven Man lv.4000": "translate_me",
-    "Automatic Get Sang Tin ja Test": "translate_me"
+    "Automatic Craft Sang Tin JA": "translate_me",
+    "Automatic Craft Cyn": "translate_me"
 }
