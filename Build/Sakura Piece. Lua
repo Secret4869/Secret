@@ -1,0 +1,103 @@
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Secret4869/Secret/refs/heads/main/Library/Test.lua"))()
+local Window = redzlib:MakeWindow({"Exclusive Hub : Sakura Piece", "By Barloss", "Exclusive_SakuraPiece.json"})
+  Window:AddMinimizeButton({
+    Button = { Image = redzlib:GetIcon("rbxassetid://18483333121"), BackgroundTransparency = 0 },
+    Corner = { CornerRadius = UDim.new(0, 6) }
+})
+local Setting = Window:MakeTab({"Setting Farm", "settings"})
+local General = Window:MakeTab({"General", "home"})
+local Stats = Window:MakeTab({"Stats", "bar-chart-2"})
+local Teleport = Window:MakeTab({"Teleport", "mountain-snow"})
+local Miscellaneous = Window:MakeTab({"Miscellaneous", "axe"})
+
+local function AddToggle(Tab, Name, Description, Default, Flag)
+local Ver = Tab:AddToggle({
+        Name = Name,
+        Description = Description,
+        Flag = Flag,
+        Default = Default,
+        Callback = function(Value)
+            _env[Flag] = Value
+        end})
+        return Ver
+    end
+    local function AddDropdownS(Tab, Name, Description, Options, Default, MultiSelect, Flag)
+        local Ver = Tab:AddDropdown({
+          Name = Name,Description = Description or "",Options = Options,Default = Default,Flag = Flag,MultiSelect = MultiSelect,
+          Callback = function(Values)
+              _env[Flag] = {}
+              if MultiSelect then
+                for val, State in pairs(Values) do
+                    if State then
+                        table.insert(_env[Flag], val)
+                    end
+                end
+                end
+            end})
+        return Ver
+    end
+    local function AddDropdown(Tab, Name, Description, Options, Default, Flag)
+      local Ver = Tab:AddDropdown({
+        Name = Name,Description = Description or "",Options = Options,Default = Default,Flag = Flag,
+        Callback = function(Value)
+            _env[Flag] = Value
+        end})
+        return Ver
+    end
+    local function AddSlider(Tab, Name, Description, Min, Max, Default, Flag)
+        local Ver = Tab:AddSlider({
+        Name = Name,Description = Description or "",Min = Min,Max = Max,Default = Default,Flag = Flag,
+        Callback = function(Value)
+            _env[Flag] = Value
+        end})
+        return Ver
+    end
+    local function AddTextBox(Tab, Name, Description, PlaceholderText)
+    local Ver = Tab:AddTextBox({
+        Name = Name,Description = Description or "",PlaceholderText = PlaceholderText,
+        Callback = function(Value)
+            _env[Flag] = Value
+        end})
+    return Ver
+end
+
+
+local Select_W = AddDropdownS(Setting,"Select Weapon", "", Weaponlist, {Weaponlist[1]}, true, "Select_ToolFarm")
+Setting:AddButton({"Refresh Weapon", function()
+local Weaponlist = {}
+    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v:IsA("Tool") then
+            if not table.find(Weaponlist, v.Name) then
+                table.insert(Weaponlist, v.Name)
+                end
+            end
+        end
+    Select_W:Set(Weaponlist)
+end})
+AddToggle(Setting, "Skill Z", "", Settings.SkillZ, "SkillZ")
+AddToggle(Setting, "Skill X", "", Settings.SkillX, "SkillX")
+AddToggle(Setting, "Skill C", "", Settings.SkillC, "SkillC")
+AddToggle(Setting, "Skill V", "", Settings.SkillV, "SkillV")
+AddDropdownS(General, "Select Mobs", "", Monzz, Settings.SelectMobs, true, "Select Mobs")
+AddToggle(General, "Auto Farm Mobs", "", Settings.AutoFarmMobs, "AutoFarmMobs")
+AddToggle(General, "Auto Farm Level", "", Settings.AutoFarm, "AutoFarm")
+AddToggle(General, "Auto Farn Raid", "", Settings.Raid, "KillAura")
+AddToggle(General, " Auto Quest Kill 1000 Bandit", "", Settings.Bandit, "Kill 1000 Bandit")
+AddToggle(General, "Auto Spawn Elephant Strawberry", "", Settings.Elephant, "Auto Spawn Elephant Strawberry")
+Stats:AddSlider({"Point", 1, 500, 1, Settings.Sv, function(call)
+      Settings.Sv = call
+end, "Point"})
+Stats:AddButton({"Reset Stats", function()
+ReStats()
+end})
+AddToggle(Stats, "Stats Melee", "", Settings.Melee, "Melee")
+AddToggle(Stats, "Stats Sword", "", Settings.Sword, "Sword")
+AddToggle(Stats, "Stats DevilFruit", "", Settings.DevilFruit, "DevilFruit")
+AddToggle(Stats, "Stats Defense", "", Settings.Defense, "Defense")
+AddDropdown(Teleport,"Select Island","", IslandsList, {Weaponlist[1]},"SelectIsland")
+Teleport:AddButton({"Telepot Island", function()
+  TPIsland()
+end})
+Miscellaneous:AddButton({"Telepot Island", function()
+  BootsFps()
+end})
