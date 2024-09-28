@@ -98,6 +98,6 @@ AddDropdown(Teleport,"Select Island","", IslandsList, {Weaponlist[1]},"SelectIsl
 Teleport:AddButton({"Telepot Island", function()
   TPIsland()
 end})
-Miscellaneous:AddButton({"Telepot Island", function()
+Miscellaneous:AddButton({"Boots Fps", function()
   BootsFps()
 end})
