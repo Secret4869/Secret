@@ -1,5 +1,5 @@
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Secret4869/Secret/refs/heads/main/Library/Test.lua"))()
-local Window = redzlib:MakeWindow({"Exclusive Hub : Rung Piece", "By Tomie", "Exclusive_Rung_Sea.json"})
+local Window = redzlib:MakeWindow({'Exclusive Hub'..'  '..os.date('%A, %B %d %Y')..'   [Executor '..identifyexecutor()..']', 'Premium Script', "Exclusive_Rung_Sea.json"})
   Window:AddMinimizeButton({
     Button = { Image = redzlib:GetIcon("rbxassetid://18483333121"), BackgroundTransparency = 0 },
     Corner = { CornerRadius = UDim.new(0, 6) }
