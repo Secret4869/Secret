@@ -126,6 +126,10 @@ end
 --------// [ Miscellaneous ] \\--------
 Miscellaneous:AddSection("Instant Kill")
 AddToggle(Miscellaneous, "Instant Kill", "", Settings.Instant_Kill, "Instant Kill")
+Miscellaneous:AddSection("Spam Skill")
+AddDropdown(Miscellaneous,"Select Weapon","", Weaponlist, {Weaponlist[1]},"Select_Skill_Weapon")
+AddDropdown(Miscellaneous,"Select Cooldown","", Cooldown, {Cooldown[1]},"Select_Cooldown")
+AddToggle(Miscellaneous, "Automatic Spam Skill", "", Settings.Automatic_Spam_Skill, "Automatic_Spam_Skill")
 Miscellaneous:AddSection("NO CD")
 Miscellaneous:AddButton({"No CoolDown may only be used in Mobile and requires pressing the skill button manually. ", function()
     NOCD()
