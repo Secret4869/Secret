@@ -101,6 +101,7 @@ AddToggle(Setting, "V", "", Settings.Automatic_SkillV, "Automatic_SkillV")
 General:AddSection("Raid")
 AddToggle(General, languageData["Automatic Clear Eazy BossFight"], "", Settings.Atomatic_Clear_Trash_Eazy, "Atomatic_Clear_Trash_Eazy")
 AddToggle(General, languageData["Automatic Clear Hard BossFight"], "", Settings.Atomatic_Clear_Trash_Hard, "Atomatic_Clear_Trash_Hard")
+AddToggle(General, languageData["Automatic Clear Insane BossFight"], "", Settings.Atomatic_Clear_Trash_Insane, "Atomatic_Clear_Trash_Insane")
 General:AddSection(languageData["Automatic Spawn Boss + Automatic Farm Boss"])
 for _, bossData in pairs(LoadBoss) do
     AddToggle(General, "Automatic Spawn Boss " .. bossData[3], "Need <font color='rgb(252, 1, 127)'>".. bossData[1] .."</font>   If you don't have it, you'll buy it for me automatically", Settings[bossData[3]], "Automatic_Spawn_Boss_" .. bossData[3])
@@ -108,6 +109,7 @@ end
 for _, BossData2 in pairs(LoadBoss2) do
     AddToggle(General, "Automatic Spawn Boss " .. BossData2[5], "Need <font color='rgb(252, 1, 127)'>".. BossData2[3] .."</font>   If you don't have it, you'll buy it for me automatically", Settings[BossData2[5]], "Automatic_Spawn_Boss_" .. BossData2[5])
 end
+AddToggle(General, languageData["Automatic Spawn Cyn lv.Halloween"], "<font color='rgb(252, 1, 127)'>".. languageData["Requires ??? to spawn Cyn lv. Halloween and requires Crucifix Patch to kill Cyn lv. Halloween. You need 10K Ruby to buy the Crucifix Patch"] .."</font>", Settings.Automatic_Hollow_Cyn, "Automatic_Hollow_Cyn")
 General:AddSection(languageData["Automatic Farm All Boss"])
 AddToggle(General, languageData["Automatic Farm All Boss"], "", Settings.Automatic_Farm_All_Boss, "Automatic_Farm_All_Boss")
 General:AddSection(" Automatic Farm")
