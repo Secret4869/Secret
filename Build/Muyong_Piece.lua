@@ -7,7 +7,7 @@ local Window = redzlib:MakeWindow({'Exclusive Hub'..'  '..os.date('%A, %B %d %Y'
 local Discord = Window:MakeTab({"Discord", "Info"})
 local Setting = Window:MakeTab({"Setting Farm", "settings"})
 local General = Window:MakeTab({"General", "home"})
---local Item = Window:MakeTab({"Item", "Swords"})
+local Item = Window:MakeTab({"Item", "Swords"})
 local Teleport = Window:MakeTab({"Teleport", "mountain-snow"})
 local Miscellaneous = Window:MakeTab({"Miscellaneous", "axe"})
 local function AddToggle(Tab, Name, Description, Default, Flag)
@@ -91,11 +91,6 @@ end})
 AddToggle(Setting, "Automatic Attack + Automatic Equip", "", Settings.Atk_E, "Atk_ATMEQ")
 AddSlider(Setting, "Farm Distance","", 0, 100, Settings.FarmDistance, "Farm_Distance")
 AddDropdown(Setting,"Select Method","", Mode, {Mode[3]},"Select_Method")
-Setting:AddSection("Automatic Skill")
-AddToggle(Setting, "Z", "", Settings.Automatic_SkillZ, "Automatic_SkillZ")
-AddToggle(Setting, "X", "", Settings.Automatic_SkillX, "Automatic_SkillX")
-AddToggle(Setting, "C", "", Settings.Automatic_SkillC, "Automatic_SkillC")
-AddToggle(Setting, "V", "", Settings.Automatic_SkillV, "Automatic_SkillV")
 --------// [ General ] \\--------
 General:AddSection("Automatic Farm Boss")
 AddToggle(General, "Automatic Farm All Boss", "", Settings.Automatic_Farm_All_Boss, "Automatic_Farm_All_Boss")
@@ -113,27 +108,55 @@ MobsList = {}
     Select_M:Set(MobsList)
 end})
 AddToggle(General, "Automatic Farm Mobs Select", "", Settings.Atomatic_Level, "Atomatic_Level")
+--------// [ Item ] \\--------
+Item:AddSection("Sea One")
+AddToggle(Item, "Automatic Make Shadow Blade", "Event", Settings.Automatic_Make_Shadow, "Automatic_Make_Shadow_Blade")
+AddToggle(Item, "Automatic Make Toji", "Event", Settings.Automatic_Make_Toji, "Automatic_Make_Toji")
+AddToggle(Item, "Automatic Make CoolTono Baton", "CoolTono Baton [Glasses + Pig + Gift Obito + Shark Fin+Ord Brown]", Settings.Automatic_Make_CoolTono_Baton, "Automatic_Make_CoolTono_Baton")
+AddToggle(Item, "Automatic Make ObitoV1", "Obito Baton [Gift Obito + Obito Meat]", Settings.Automatic_Make_ObitoV1, "Automatic_Make_ObitoV1")
+
+Item:AddSection("Sea Two")
+AddToggle(Item, "Automatic Make Obito V2", "Gift Obito + Ord Kamui + Wood + Red Eye + Obito Baton = Obito Baton V.2", Settings.Automatic_Make_ObitoV2, "Automatic_Make_ObitoV2")
+
+
 --------// [ Teleport ] \\--------
-Teleport:AddSection("Npc Shop")
-for _, prompt in pairs(workspace.Map.Shop:GetDescendants()) do
-    if prompt:IsA("Model") and prompt:FindFirstChild("HumanoidRootPart") then
-        Teleport:AddButton({prompt.Name, function()  
-            local targetPivot = prompt.HumanoidRootPart:GetPivot()
-            game.Players.LocalPlayer.Character:PivotTo(targetPivot)
+Teleport:AddSection("Shop")
+for _, Shop in pairs(workspace.Map.Shop:GetChildren()) do
+    if Shop:IsA("Model") then
+        Teleport:AddButton({Shop.Name, function()  
+            local Shopp = Shop:GetModelCFrame()
+            Tp(Shopp)
+        end})
+    end
+end
+Teleport:AddSection("Island")
+for _, Island in pairs(IslandPath:GetChildren()) do
+    if Island:IsA("Model") then
+        Teleport:AddButton({Island.Name, function()  
+            local Islandp = Island:GetModelCFrame()
+            Tp(Islandp)
+        end})
+    end
+end
+Teleport:AddSection("NPC")
+for _, NPC in pairs(NPCPath:GetChildren()) do
+    if NPC:IsA("Model") then
+        Teleport:AddButton({NPC.Name, function()  
+            local NPCp = NPC:GetModelCFrame()
+            Tp(NPCp)
         end})
     end
 end
 --------// [ Miscellaneous ] \\--------
 Miscellaneous:AddSection("Instant Kill")
 AddToggle(Miscellaneous, "Instant Kill", "", Settings.Instant_Kill, "Instant Kill")
-Miscellaneous:AddSection("Spam Skill")
-AddDropdown(Miscellaneous,"Select Weapon","", Weaponlist, {Weaponlist[1]},"Select_Skill_Weapon")
-AddDropdown(Miscellaneous,"Select Cooldown","", Cooldown, {Cooldown[1]},"Select_Cooldown")
-AddToggle(Miscellaneous, "Automatic Spam Skill", "", Settings.Automatic_Spam_Skill, "Automatic_Spam_Skill")
-Miscellaneous:AddSection("NO CD")
-Miscellaneous:AddButton({"No CoolDown may only be used in Mobile and requires pressing the skill button manually. ", function()
-    NOCD()
+Miscellaneous:AddSection("Redeem Code")
+Miscellaneous:AddButton({"Redeem All Code", function()
+for _,v in pairs(localplayer.Codes:GetChildren()) do
+    local args = {
+        [1] = v.Name
+        }
+    
+        game:GetService("ReplicatedStorage").RedeemCode:FireServer(unpack(args))
+    end
 end})
-Miscellaneous:AddSection("Automatic Get Free")
-AddToggle(Miscellaneous, "Automatic Click Beli", "", Settings.Automatic_GetBeli, "Automatic_GetBeli")
-AddToggle(Miscellaneous, "Automatic Click Gem", "", Settings.Automatic_GetGem, "Automatic_GetGem")
