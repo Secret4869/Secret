@@ -131,7 +131,7 @@ AddToggle(Item, languageData["Automatic Craft Guntip Beta Test"], "", Settings.A
 AddToggle(Item, languageData["Automatic Craft Sang Tin JA"], "<font color='rgb(252, 1, 127)'> It will find everything necessary for making Sang Tin JA, except for the gem. You will have to find the gem yourself. </font>", Settings.Atomatic_Get_STJ, "Atomatic_Get_STJ")
 AddToggle(Item, languageData["Automatic Craft Cyn"], "", Settings.Automatic_Craft_Cya, "Automatic_Craft_Cya")
 --------// [ Teleport ] \\--------
-for _, prompt in pairs(workspace.Map.Seller:GetDescendants()) do
+for _, prompt in pairs(workspace.Seller:GetDescendants()) do
     if prompt:IsA("ProximityPrompt") then
         Teleport:AddButton({prompt.ActionText, function()
             local targetPivot = prompt.Parent:GetPivot()
