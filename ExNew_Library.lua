@@ -271,7 +271,7 @@ local GetFlag, SetFlag, CheckFlag do
 end
 
 local ScreenGui = Create("ScreenGui", CoreGui, {
-	Name = "ScreenGui",
+	Name = "Frame",
 }, {
 	Create("UIScale", {
 		Scale = UIScale,
