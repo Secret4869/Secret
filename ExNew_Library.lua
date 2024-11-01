@@ -271,7 +271,7 @@ local GetFlag, SetFlag, CheckFlag do
 end
 
 local ScreenGui = Create("ScreenGui", CoreGui, {
-	Name = "redz Library V5",
+	Name = "ScreenGui",
 }, {
 	Create("UIScale", {
 		Scale = UIScale,
