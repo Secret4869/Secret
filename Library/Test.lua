@@ -273,7 +273,7 @@ local GetFlag, SetFlag, CheckFlag do
 	end)
 end
 
-local ScreenGui = Create("ScreenGui", Playergui, {
+local ScreenGui = Create("ScreenGui", CoreGui, {
 	Name = "redz Library V5",
 }, {
 	Create("UIScale", {
@@ -282,7 +282,7 @@ local ScreenGui = Create("ScreenGui", Playergui, {
 	})
 })
 
-local ScreenFind = Playergui:FindFirstChild(ScreenGui.Name)
+local ScreenFind = CoreGui:FindFirstChild(ScreenGui.Name)
 if ScreenFind and ScreenFind ~= ScreenGui then
 	ScreenFind:Destroy()
 end
