@@ -8,6 +8,7 @@ local RunService = game:GetService("RunService")
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
+local Playergui = Player:WaitForChild("PlayerGui")
 local PlayerMouse = Player:GetMouse()
 
 local redzlib = {
@@ -272,7 +273,7 @@ local GetFlag, SetFlag, CheckFlag do
 	end)
 end
 
-local ScreenGui = Create("ScreenGui", CoreGui, {
+local ScreenGui = Create("ScreenGui", Playergui, {
 	Name = "redz Library V5",
 }, {
 	Create("UIScale", {
@@ -281,7 +282,7 @@ local ScreenGui = Create("ScreenGui", CoreGui, {
 	})
 })
 
-local ScreenFind = CoreGui:FindFirstChild(ScreenGui.Name)
+local ScreenFind = Playergui:FindFirstChild(ScreenGui.Name)
 if ScreenFind and ScreenFind ~= ScreenGui then
 	ScreenFind:Destroy()
 end
