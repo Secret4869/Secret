@@ -281,7 +281,7 @@ local ScreenGui = Create("ScreenGui", Playergui, {
 		Name = "Scale"
 	})
 })
-
+ScreenGui.ResetOnSpawn = false
 local ScreenFind = Playergui:FindFirstChild(ScreenGui.Name)
 if ScreenFind and ScreenFind ~= ScreenGui then
 	ScreenFind:Destroy()
