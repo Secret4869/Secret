@@ -8,7 +8,7 @@ local RunService = game:GetService("RunService")
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
-local Playergui = Player:WaitForChild("PlayerGui")
+local PlayerGui = Players.LocalPlayer.PlayerGui
 local PlayerMouse = Player:GetMouse()
 
 local redzlib = {
@@ -273,19 +273,20 @@ local GetFlag, SetFlag, CheckFlag do
 	end)
 end
 
-local ScreenGui = Create("ScreenGui", Playergui, {
-	Name = "ScreenGui",
+local ScreenGui = Create("ScreenGui", PlayerGui, {
+	Name = "Ex",
 }, {
 	Create("UIScale", {
 		Scale = UIScale,
 		Name = "Scale"
 	})
 })
-Playergui.ScreenGui.ResetOnSpawn = false
-local ScreenFind = Playergui:FindFirstChild(ScreenGui.Name)
+local ScreenFind = PlayerGui:FindFirstChild(ScreenGui.Name)
 if ScreenFind and ScreenFind ~= ScreenGui then
 	ScreenFind:Destroy()
 end
+
+PlayerGui.Ex.ResetOnSpawn = false
 
 local function GetStr(val)
 	if type(val) == "function" then
@@ -1877,5 +1878,4 @@ function redzlib:MakeWindow(Configs)
 	MinimizeButton.Activated:Connect(Window.MinimizeBtn)
 	return Window
 end
-
 return redzlib
