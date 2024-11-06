@@ -273,16 +273,16 @@ local GetFlag, SetFlag, CheckFlag do
 	end)
 end
 
-local ScreenGui = Create("ScreenGui", Playergui, {
-	Name = "ScreenGui",
+local ScreenGui = Create("ScreenGui", CoreGui, {
+	Name = "ScreenGuiEx",
 }, {
 	Create("UIScale", {
 		Scale = UIScale,
 		Name = "Scale"
 	})
 })
-Playergui.ScreenGui.ResetOnSpawn = false
-local ScreenFind = Playergui:FindFirstChild(ScreenGui.Name)
+--Playergui.ScreenGui.ResetOnSpawn = false
+local ScreenFind = CoreGui:FindFirstChild(ScreenGui.Name)
 if ScreenFind and ScreenFind ~= ScreenGui then
 	ScreenFind:Destroy()
 end
